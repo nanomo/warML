@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3 id="tot"></h3>
+<script language="javascript" type="text/javascript">
+<!--
+/*
+Permutación sin repetición, cada elemento se considera una columna completa del mismo ingrediente salvo para M(masita) que se considera que
+hay una columna que no puede llegar a tener 3 unidades del mismo ingrediente.
+Permutaciones sin repetición + 3 posibles pasteles ricos con única columna de 3 unidades del mismo ingrediente = 27
+Luego al resultado podemos o no multiplicarlo por 2 para tener las permutaciones horizontales (lo cual seria totalmente ilogico ya que el molde al girarse no deberia cambiar su contenido por tanto no se considera un pastel rico mas...)
+*/
+var f = [];
+function factorial (n) {
+  if (n == 0 || n == 1)
+    return 1;
+  if (f[n] > 0)
+    return f[n];
+  else
+    return f[n] = factorial(n-1) * n;
+}
+
+var n=4;
+var r=3;
+
+var res = parseInt(factorial(n)/factorial(n-r) ) + parseInt(3);
+
+document.getElementById("tot").innerHTML = "total de pasteles ricos: "+ res;
+
+
+//-->
+</script>
+</body>
+</html> 
